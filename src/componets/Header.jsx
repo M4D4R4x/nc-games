@@ -1,3 +1,4 @@
+import { React } from "react";
 const Header = () => {
   return <h1 className="Header"> My Game app</h1>;
 };
