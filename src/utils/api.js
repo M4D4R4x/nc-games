@@ -23,6 +23,6 @@ export const getReviewsById = (id) => {
   let path = "/reviews/";
   if (id) path += `${id}`;
   return gamesApi.get(path).then(({ data }) => {
-    console.log(data, "getreviewsbyid console");
+    return data.reviews
   });
 };

@@ -15,7 +15,7 @@ const Reviews = () => {
 
   return (
     <main className="Reviews">
-      <h2> all reviews </h2>
+      <h2> reviews </h2>
       <ul>
         {reviews.map((review) => {
           return (
