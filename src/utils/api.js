@@ -10,10 +10,12 @@ export const getCategories = () => {
     return data.Categories;
   });
 };
-
-export const getReviews = (category) => {
-  let path = "/reviews?Limit100";
-  if (category) path += `&category=${category}`;
+//modify for desc /asc
+//add to sorting as option
+export const getReviews = (category, sortBy) => {
+  const sortingOption = sortBy ? `&sortBy=${sortBy}` : "";
+  let path = `/reviews?Limit100`;
+  if (category) path += `${sortingOption}&category=${category}`;
   return gamesApi.get(path).then(({ data }) => {
     return data.reviews;
   });
@@ -23,6 +25,22 @@ export const getReviewsById = (id) => {
   let path = "/reviews/";
   if (id) path += `${id}`;
   return gamesApi.get(path).then(({ data }) => {
-    return data.reviews
+    return data.reviews;
+  });
+};
+
+export const patchVotesByID = (id, body) => {
+  let path = `/reviews/${id}`;
+
+  return gamesApi.patch(path, body).then(({ data }) => {
+    return data.reviews;
+  });
+};
+
+export const getCommentsByID = (id) => {
+  let path = `/reviews/${id}/comments`;
+
+  return gamesApi.get(path).then(({ data }) => {
+    return data.Comments;
   });
 };

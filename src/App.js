@@ -18,6 +18,7 @@ function App() {
           <Route path="/reviews" element={<Reviews />}></Route>
           <Route path="/category/:category" element={<Reviews />}></Route>
           <Route path="/review/:id" element={<Review />}></Route>
+          {/* <Route path="/review/:id/comments" element={<Review />}></Route> */}
         </Routes>
       </div>
     </BrowserRouter>

@@ -12,9 +12,17 @@ const Reviews = () => {
       setReviews(reviewsFromApi);
     });
   }, [category]);
+  // need work order
+
+  const sortByTitle = (pre) => {
+    getReviews(category, "title").then((reviewsFromApi) => {
+      setReviews(reviewsFromApi);
+    });
+  };
 
   return (
     <main className="Reviews">
+      <button onClick={sortByTitle}>sortby title</button>
       <h2> reviews </h2>
       <ul>
         {reviews.map((review) => {
