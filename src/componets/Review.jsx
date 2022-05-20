@@ -3,7 +3,7 @@ import { getReviewsById } from "../utils/api";
 import React from "react";
 import { useParams } from "react-router-dom";
 import UpdateReviewVotes from "./UpdateReviewVotes";
-import Comments from "./Comments";
+import ReviewComments from "./ReviewComments";
 
 const Review = () => {
   const [review, setReview] = useState("");
@@ -33,7 +33,7 @@ const Review = () => {
           updateVotes={updateVotes}
           reviewId={id}
         />
-        <Comments reviewId={id} />
+        <ReviewComments reviewId={id} />
       </ul>
     </main>
   );

@@ -1,20 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { patchVotesByID } from "../utils/api";
 
 function UpdateReviewVotes(props) {
+  const [hasVoted, settHasVoted] = useState(false);
   const upVotesHandler = () => {
-    props.updateVotes(1);
-    patchVotesByID(props.reviewId, { inc_votes: 1 });
+    if (hasVoted === false) {
+      props.updateVotes(1);
+      patchVotesByID(props.reviewId, { inc_votes: 1 });
+      settHasVoted(true);
+    }
   };
-  const downVotesHandler = () => {
-    props.updateVotes(-1);
-    patchVotesByID(props.reviewId, { inc_votes: -1 });
-  };
+
   return (
     <div>
       <div>UpdateReviewVotes</div>
-      <button onClick={upVotesHandler}>votes up</button>{" "}
-      <button onClick={downVotesHandler}>votes down</button>
+      <button onClick={upVotesHandler}>votes up</button>
     </div>
   );
 }

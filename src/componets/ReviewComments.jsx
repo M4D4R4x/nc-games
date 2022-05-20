@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getCommentsByID } from "../utils/api";
 
-function Comments(props) {
+function ReviewComments(props) {
   const [comments, setComments] = useState([]);
 
   useEffect(() => {
@@ -12,7 +12,7 @@ function Comments(props) {
 
   return (
     <main className="Comment">
-      <h2>Comments</h2>
+      <h2>ReviewComments</h2>
       <ul>
         {comments.map((comments) => {
           return (
@@ -21,6 +21,7 @@ function Comments(props) {
               <h5>author: {comments.author}</h5>
               <h5>comment:{comments.body}</h5>
               <h5>votes:{comments.votes}</h5>
+              <button>vote on comment</button>
               <h5>created: {comments.created_at}</h5>
             </li>
           );
@@ -30,4 +31,4 @@ function Comments(props) {
   );
 }
 
-export default Comments;
+export default ReviewComments;

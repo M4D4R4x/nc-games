@@ -12,10 +12,11 @@ export const getCategories = () => {
 };
 //modify for desc /asc
 //add to sorting as option
-export const getReviews = (category, sortBy) => {
-  const sortingOption = sortBy ? `&sortBy=${sortBy}` : "";
+export const getReviews = (category, sortBy, order) => {
+  const orderOption = sortBy ? `&&order=${order}` : "";
+  const sortingOption = sortBy ? `&&sortBy=${sortBy}` : "";
   let path = `/reviews?Limit100`;
-  if (category) path += `${sortingOption}&category=${category}`;
+  if (category) path += `${sortingOption} ${orderOption}&category=${category}`;
   return gamesApi.get(path).then(({ data }) => {
     return data.reviews;
   });

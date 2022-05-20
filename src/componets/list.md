@@ -5,20 +5,20 @@ for voting use state has voted
 
 ​
 
-- [ ] Serves all reviews / top reviews
-- [ ] Can vote on reviews
-- [ ] Can vote a maximum of once in either direction per page load
-- [ ] Votes are persistent when page is refreshed
-- [ ] Reviews by category pages load only relevant reviews (especially when navigating from one category page to another)
-- [ ] Can sort reviews by date created / comment_count / votes
-      ​
+- [ x] Serves all reviews / top reviews
+- [ x] Can vote on reviews
+- [ done ask adrian] Can vote a maximum of once in either direction per page load
+- [x ] Votes are persistent when page is refreshed
+- [x ] Reviews by category pages load only relevant reviews (especially when navigating from one category page to another)
+- [sort and order working do something about sort button ] Can sort reviews by date created / comment_count / votes
+  ​
 
 ### Individual Review / Comments
 
 ​
 
-- [ ] Individual reviews are served with comments
-- [ ] Can vote on comments
+- [ x] Individual reviews are served with comments
+- [ working on] Can vote on comments -[worked on check with adrian ] build the back end for updatecomment
 - [ ] Can vote a maximum of once in either direction per page load
 - [ ] Votes are persistent when page is refreshed
 - [ ] Can post new comments, which are persistent

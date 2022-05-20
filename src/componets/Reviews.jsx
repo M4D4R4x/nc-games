@@ -2,9 +2,13 @@ import { useEffect, useState } from "react";
 import { getReviews } from "../utils/api";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import ReviewFilter from "./ReviewFilter";
+import ReviewOrder from "./ReviewOrder";
 
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
+  const [sort, setSort] = useState("title");
+  const [order, setOrder] = useState("DESC");
   const { category } = useParams();
 
   useEffect(() => {
@@ -12,17 +16,28 @@ const Reviews = () => {
       setReviews(reviewsFromApi);
     });
   }, [category]);
-  // need work order
 
-  const sortByTitle = (pre) => {
-    getReviews(category, "title").then((reviewsFromApi) => {
+  const submitSortOrder = () => {
+    getReviews(category, sort, order).then((reviewsFromApi) => {
       setReviews(reviewsFromApi);
     });
+  };
+  const selectedOrderHandler = (selectedOrderData) => {
+    setOrder(selectedOrderData);
+  };
+
+  const selectedSortHandler = (seletedSortData) => {
+    setSort(seletedSortData);
   };
 
   return (
     <main className="Reviews">
-      <button onClick={sortByTitle}>sortby title</button>
+      <ReviewFilter selected={sort} selectedSortOption={selectedSortHandler} />
+      <ReviewOrder
+        selected={order}
+        selectedOrderOption={selectedOrderHandler}
+      />
+      <button onClick={submitSortOrder}>sort</button>
       <h2> reviews </h2>
       <ul>
         {reviews.map((review) => {
@@ -37,6 +52,7 @@ const Reviews = () => {
               <img src={review.review_img_url} alt={review.review_} />
               <h5>Category:{review.category}</h5>
               <h5>comments:{review.comment_count}</h5>
+              <h5>votes:{review.votes}</h5>
             </li>
           );
         })}
