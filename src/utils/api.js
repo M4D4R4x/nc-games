@@ -6,12 +6,10 @@ const gamesApi = axios.create({
 
 export const getCategories = () => {
   return gamesApi.get("/categories").then(({ data }) => {
-    //console.log(data.Categories);
     return data.Categories;
   });
 };
-//modify for desc /asc
-//add to sorting as option
+
 export const getReviews = (category, sortBy, order) => {
   const orderOption = sortBy ? `&&order=${order}` : "";
   const sortingOption = sortBy ? `&&sortBy=${sortBy}` : "";
@@ -42,6 +40,22 @@ export const getCommentsByID = (id) => {
   let path = `/reviews/${id}/comments`;
 
   return gamesApi.get(path).then(({ data }) => {
-    return data.Comments;
+    return data.comments;
+  });
+};
+
+export const patchCommentVotesByID = (id, body) => {
+  let path = `/comments/${id}/votes`;
+
+  return gamesApi.patch(path, body).then(({ data }) => {
+    return data.comment;
+  });
+};
+
+export const postCommentByreviewId = (id, body) => {
+  let path = `/reviews/${id}/comments`;
+
+  return gamesApi.patch(path, body).then(({ data }) => {
+    return data.comment;
   });
 };

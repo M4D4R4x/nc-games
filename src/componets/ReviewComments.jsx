@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getCommentsByID } from "../utils/api";
+import UpdateCommentVotes from "../componets/UpdateCommentVotes";
 
 function ReviewComments(props) {
   const [comments, setComments] = useState([]);
@@ -9,7 +10,18 @@ function ReviewComments(props) {
       setComments(reviewFromApi);
     });
   }, [props.reviewId]);
-
+  const updateStateCommentVotes = (comment_id, voteInt) => {
+    setComments((prev) => {
+      const newState = [...prev];
+      newState.forEach((comment) => {
+        if (comment_id === comment.id) {
+          comment.votes += voteInt;
+        }
+      });
+      return newState;
+    });
+  };
+  console.log(comments);
   return (
     <main className="Comment">
       <h2>ReviewComments</h2>
@@ -21,7 +33,10 @@ function ReviewComments(props) {
               <h5>author: {comments.author}</h5>
               <h5>comment:{comments.body}</h5>
               <h5>votes:{comments.votes}</h5>
-              <button>vote on comment</button>
+              <UpdateCommentVotes
+                commentId={comments.comment_id}
+                updateStateCommentVotes={updateStateCommentVotes}
+              />
               <h5>created: {comments.created_at}</h5>
             </li>
           );

@@ -17,13 +17,13 @@ const Reviews = () => {
     });
   }, [category]);
 
-  const submitSortOrder = () => {
-    getReviews(category, sort, order).then((reviewsFromApi) => {
-      setReviews(reviewsFromApi);
-    });
-  };
   const selectedOrderHandler = (selectedOrderData) => {
     setOrder(selectedOrderData);
+    console.log("log");
+    getReviews(category, sort, order).then((reviewsFromApi) => {
+      console.log("reviews");
+      setReviews(reviewsFromApi);
+    });
   };
 
   const selectedSortHandler = (seletedSortData) => {
@@ -37,7 +37,7 @@ const Reviews = () => {
         selected={order}
         selectedOrderOption={selectedOrderHandler}
       />
-      <button onClick={submitSortOrder}>sort</button>
+
       <h2> reviews </h2>
       <ul>
         {reviews.map((review) => {

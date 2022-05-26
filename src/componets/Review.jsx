@@ -6,7 +6,7 @@ import UpdateReviewVotes from "./UpdateReviewVotes";
 import ReviewComments from "./ReviewComments";
 
 const Review = () => {
-  const [review, setReview] = useState("");
+  const [review, setReview] = useState([]);
   const { id } = useParams();
 
   useEffect(() => {
@@ -28,11 +28,7 @@ const Review = () => {
         <h5>comments:{review.comment_count}</h5>
         <img src={review.review_img_url} alt={review.review_} />
         <h5>votes :{review.votes}</h5>
-        <UpdateReviewVotes
-          votes={review.votes}
-          updateVotes={updateVotes}
-          reviewId={id}
-        />
+        <UpdateReviewVotes updateVotes={updateVotes} reviewId={id} />
         <ReviewComments reviewId={id} />
       </ul>
     </main>
