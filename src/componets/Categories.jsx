@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { getReviews } from "../utils/api";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-import ReviewFilter from "./ReviewFilter";
-import ReviewOrder from "./ReviewOrder";
+import ReviewFilter from "./Review/ReviewFilter";
+import ReviewOrder from "./Review/ReviewOrder";
 
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);

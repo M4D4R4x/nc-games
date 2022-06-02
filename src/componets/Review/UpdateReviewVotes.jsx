@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { patchVotesByID } from "../utils/api";
+import { patchVotesByID } from "../../utils/api";
 
 function UpdateReviewVotes(props) {
   const [hasVoted, settHasVoted] = useState(false);

@@ -24,6 +24,12 @@ for voting use state has voted
 - [x] Votes are persistent when page is refreshed
 - [ started api ] Can post new comments, which are persistent
 
+state for new comments
+input /text box on change handler
+submit button on submit
+
+protected routes google
+
 ### Additional functionality:
 
 ​
@@ -42,6 +48,13 @@ for voting use state has voted
 ​
 
 - [ done the backend for users and getusername] Some indication of who is logged in (this can be hardcoded)
-  ​
+
+private route
+wrap routes in private route
+and leave login stuff out/ register/login
+condition in private route
+​
+save user to local storage for presistance
+outlet is nested stuff
 
         install moment

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { getCommentsByID } from "../utils/api";
-import UpdateCommentVotes from "../componets/UpdateCommentVotes";
+import { getCommentsByID } from "../../utils/api";
+import PostComment from "../Comments/PostComment";
+import UpdateCommentVotes from "../Comments/UpdateCommentVotes";
 
 function ReviewComments(props) {
   const [comments, setComments] = useState([]);
@@ -21,7 +22,7 @@ function ReviewComments(props) {
       return newState;
     });
   };
-  console.log(comments);
+
   return (
     <main className="Comment">
       <h2>ReviewComments</h2>
@@ -29,6 +30,7 @@ function ReviewComments(props) {
         {comments.map((comments) => {
           return (
             <li key={comments.comment_id}>
+              <PostComment />
               <h3>comment_id: {comments.comment_id}</h3>
               <h5>author: {comments.author}</h5>
               <h5>comment:{comments.body}</h5>

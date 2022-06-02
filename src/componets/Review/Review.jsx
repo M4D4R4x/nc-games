@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getReviewsById } from "../utils/api";
+import { getReviewsById } from "../../utils/api";
 import React from "react";
 import { useParams } from "react-router-dom";
 import UpdateReviewVotes from "./UpdateReviewVotes";

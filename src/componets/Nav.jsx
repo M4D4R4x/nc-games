@@ -13,11 +13,11 @@ const Nav = () => {
 
   return (
     <nav className="Nav">
-      <Link to={`/reviews`}>all reviews ///</Link>
+      <Link to={`/categories`}>all Categories </Link>
       {categories.map((category) => {
         return (
-          <Link key={category.slug} to={`/category/${category.slug}`}>
-            {category.slug}////
+          <Link key={category.slug} to={`/categories/${category.slug}`}>
+            {category.slug}
           </Link>
         );
       })}

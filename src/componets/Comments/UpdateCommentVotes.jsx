@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { patchCommentVotesByID } from "../utils/api";
+import { patchCommentVotesByID } from "../../utils/api";
 function UpdateCommentVotes(props) {
   const [hasVoted, settHasVoted] = useState(false);
   const upCommentVotesHandler = () => {
@@ -9,7 +9,7 @@ function UpdateCommentVotes(props) {
       settHasVoted(true);
     }
   };
-  console.log(props);
+
   return (
     <div>
       <div>UpdateCommentVotes</div>
