@@ -23,14 +23,20 @@ function ReviewComments(props) {
     });
   };
 
+  const updateReviewComments = (newComment) => {
+    setComments((prev) => {
+      return [...prev, newComment];
+    });
+  };
+
   return (
     <main className="Comment">
       <h2>ReviewComments</h2>
       <ul>
+        <PostComment updateReviewComments={updateReviewComments} />
         {comments.map((comments) => {
           return (
             <li key={comments.comment_id}>
-              <PostComment />
               <h3>comment_id: {comments.comment_id}</h3>
               <h5>author: {comments.author}</h5>
               <h5>comment:{comments.body}</h5>

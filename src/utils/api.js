@@ -55,7 +55,7 @@ export const patchCommentVotesByID = (id, body) => {
 export const postCommentByreviewId = (id, body) => {
   let path = `/reviews/${id}/comments`;
 
-  return gamesApi.patch(path, body).then(({ data }) => {
+  return gamesApi.post(path, body).then(({ data }) => {
     return data.comment;
   });
 };

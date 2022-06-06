@@ -45,6 +45,9 @@ protected routes google
 
 ### Login
 
+make login page
+make it functional
+
 ​
 
 - [ done the backend for users and getusername] Some indication of who is logged in (this can be hardcoded)
